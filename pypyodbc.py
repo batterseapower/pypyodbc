@@ -497,7 +497,7 @@ if sys.platform not in ('win32','cli'):
         wchar_pointer = ctypes.c_char_p
 
         def UCS_buf(s):
-            return s.encode(odbc_encoding)
+            return (s + u'\x00').encode(odbc_encoding)
 
         from_buffer_u = UCS_dec
 
